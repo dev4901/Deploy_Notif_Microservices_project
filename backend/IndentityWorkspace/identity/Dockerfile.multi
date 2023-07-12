@@ -1,0 +1,19 @@
+FROM openjdk:17-alpine AS final
+FROM maven:3.8.3-openjdk-17 as build
+COPY . ./code
+RUN rm -rf /root/.m2
+WORKDIR ./code
+#RUN microdnf install iputils procps
+RUN sed -i '0,/localhost/s//172.19.0.3/' src/main/resources/application.properties
+RUN sed -i 's/localhost/172.19.0.2/' src/main/resources/application.properties
+RUN sed -i 's/localhost/172.19.0.2/' src/main/resources/application.yml
+RUN mvn clean package
+#CMD java -jar -Djdk.util.jar.enableMultiRelease=false target/EmailService-0.0.1-SNAPSHOT.jar
+
+FROM final
+COPY --from=build ./code/src/main/resources/application.* ./jar/
+COPY --from=build ./code/target/identity-0.0.1-SNAPSHOT.jar ./jar/
+WORKDIR ./jar
+EXPOSE 8090
+#CMD sh
+CMD ["nohup","java","-jar", "-Djdk.util.jar.enableMultiRelease=false", "identity-0.0.1-SNAPSHOT.jar", "&"]

@@ -1,0 +1,19 @@
+FROM node:alpine
+
+COPY . ./app
+
+WORKDIR ./app
+
+#RUN sed -i 's/172.19.0.5:8089/18.191.211.71:8089/' src/Services/AuthService.js
+
+RUN sh change_to_old.sh
+
+RUN npm install -g --force
+
+RUN yarn install
+
+EXPOSE 3000
+
+#CMD sh
+CMD npm start > debug.out
+

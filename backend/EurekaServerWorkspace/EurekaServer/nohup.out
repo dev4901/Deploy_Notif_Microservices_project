@@ -1,0 +1,195 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.4)
+
+2023-06-13T05:09:38.472Z  INFO 8730 --- [           main] c.eurekaserver.EurekaServerApplication   : Starting EurekaServerApplication v0.0.1-SNAPSHOT using Java 17.0.7 with PID 8730 (/home/ubuntu/mainNotif/backend/EurekaServerWorkspace/EurekaServer/target/EurekaServer-0.0.1-SNAPSHOT.jar started by ubuntu in /home/ubuntu/mainNotif/backend/EurekaServerWorkspace/EurekaServer)
+2023-06-13T05:09:38.489Z  INFO 8730 --- [           main] c.eurekaserver.EurekaServerApplication   : No active profile set, falling back to 1 default profile: "default"
+2023-06-13T05:09:40.389Z  INFO 8730 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=041648a8-7b9b-3df4-8e1d-9bedeeae1b2e
+2023-06-13T05:09:40.769Z  INFO 8730 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8761 (http)
+2023-06-13T05:09:40.782Z  INFO 8730 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-06-13T05:09:40.782Z  INFO 8730 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-06-13T05:09:40.871Z  INFO 8730 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-06-13T05:09:40.873Z  INFO 8730 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2239 ms
+2023-06-13T05:09:42.380Z  INFO 8730 --- [           main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON encoding codec LegacyJacksonJson
+2023-06-13T05:09:42.384Z  INFO 8730 --- [           main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON decoding codec LegacyJacksonJson
+2023-06-13T05:09:42.705Z  INFO 8730 --- [           main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML encoding codec XStreamXml
+2023-06-13T05:09:42.705Z  INFO 8730 --- [           main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML decoding codec XStreamXml
+2023-06-13T05:09:43.942Z  INFO 8730 --- [           main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2023-06-13T05:09:43.996Z  WARN 8730 --- [           main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2023-06-13T05:09:44.025Z  INFO 8730 --- [           main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2023-06-13T05:09:44.064Z  INFO 8730 --- [           main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2023-06-13T05:09:44.065Z  INFO 8730 --- [           main] com.netflix.discovery.DiscoveryClient    : Client configured to neither register nor query for data.
+2023-06-13T05:09:44.077Z  INFO 8730 --- [           main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1686632984076 with initial instances count: 0
+2023-06-13T05:09:44.135Z  INFO 8730 --- [           main] c.n.eureka.DefaultEurekaServerContext    : Initializing ...
+2023-06-13T05:09:44.137Z  INFO 8730 --- [           main] c.n.eureka.cluster.PeerEurekaNodes       : Adding new peer nodes [http://localhost:8761/eureka/]
+2023-06-13T05:09:44.327Z  INFO 8730 --- [           main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON encoding codec LegacyJacksonJson
+2023-06-13T05:09:44.327Z  INFO 8730 --- [           main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON decoding codec LegacyJacksonJson
+2023-06-13T05:09:44.327Z  INFO 8730 --- [           main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML encoding codec XStreamXml
+2023-06-13T05:09:44.328Z  INFO 8730 --- [           main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML decoding codec XStreamXml
+2023-06-13T05:09:44.447Z  INFO 8730 --- [           main] c.n.eureka.cluster.PeerEurekaNodes       : Replica node URL:  http://localhost:8761/eureka/
+2023-06-13T05:09:44.459Z  INFO 8730 --- [           main] c.n.e.registry.AbstractInstanceRegistry  : Finished initializing remote region registries. All known remote regions: []
+2023-06-13T05:09:44.460Z  INFO 8730 --- [           main] c.n.eureka.DefaultEurekaServerContext    : Initialized
+2023-06-13T05:09:44.479Z  INFO 8730 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-06-13T05:09:44.537Z  INFO 8730 --- [           main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application UNKNOWN with eureka with status UP
+2023-06-13T05:09:44.566Z  INFO 8730 --- [       Thread-9] o.s.c.n.e.server.EurekaServerBootstrap   : isAws returned false
+2023-06-13T05:09:44.566Z  INFO 8730 --- [       Thread-9] o.s.c.n.e.server.EurekaServerBootstrap   : Initialized server context
+2023-06-13T05:09:44.566Z  INFO 8730 --- [       Thread-9] c.n.e.r.PeerAwareInstanceRegistryImpl    : Got 1 instances from neighboring DS node
+2023-06-13T05:09:44.567Z  INFO 8730 --- [       Thread-9] c.n.e.r.PeerAwareInstanceRegistryImpl    : Renew threshold is: 1
+2023-06-13T05:09:44.567Z  INFO 8730 --- [       Thread-9] c.n.e.r.PeerAwareInstanceRegistryImpl    : Changing status to UP
+2023-06-13T05:09:44.576Z  INFO 8730 --- [       Thread-9] e.s.EurekaServerInitializerConfiguration : Started Eureka Server
+2023-06-13T05:09:44.587Z  INFO 8730 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8761 (http) with context path ''
+2023-06-13T05:09:44.588Z  INFO 8730 --- [           main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8761
+2023-06-13T05:09:44.613Z  INFO 8730 --- [           main] c.eurekaserver.EurekaServerApplication   : Started EurekaServerApplication in 6.994 seconds (process running for 7.776)
+2023-06-13T05:10:44.568Z  INFO 8730 --- [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+2023-06-13T05:11:36.074Z  INFO 8730 --- [nio-8761-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-06-13T05:11:36.074Z  INFO 8730 --- [nio-8761-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-06-13T05:11:36.076Z  INFO 8730 --- [nio-8761-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2023-06-13T05:11:44.569Z  INFO 8730 --- [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+2023-06-13T05:12:44.568Z  INFO 8730 --- [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+2023-06-13T05:13:01.848Z  INFO 8730 --- [nio-8761-exec-1] c.n.e.registry.AbstractInstanceRegistry  : Registered instance GATEWAY/ip-172-31-21-34.us-east-2.compute.internal:GATEWAY:8888 with status UP (replication=false)
+2023-06-13T05:13:02.729Z  INFO 8730 --- [nio-8761-exec-3] c.n.e.registry.AbstractInstanceRegistry  : Registered instance GATEWAY/ip-172-31-21-34.us-east-2.compute.internal:GATEWAY:8888 with status DOWN (replication=false)
+2023-06-13T05:13:02.790Z  WARN 8730 --- [nio-8761-exec-2] c.n.e.registry.AbstractInstanceRegistry  : There is an existing lease and the existing lease's dirty timestamp 1686633182714 is greater than the one that is being registered 1686633181469
+2023-06-13T05:13:02.790Z  WARN 8730 --- [nio-8761-exec-2] c.n.e.registry.AbstractInstanceRegistry  : Using the existing instanceInfo instead of the new instanceInfo as the registrant
+2023-06-13T05:13:02.790Z  INFO 8730 --- [nio-8761-exec-2] c.n.e.registry.AbstractInstanceRegistry  : Registered instance GATEWAY/ip-172-31-21-34.us-east-2.compute.internal:GATEWAY:8888 with status DOWN (replication=true)
+2023-06-13T05:13:03.244Z  INFO 8730 --- [nio-8761-exec-4] c.n.e.registry.AbstractInstanceRegistry  : Registered instance GATEWAY/ip-172-31-21-34.us-east-2.compute.internal:GATEWAY:8888 with status DOWN (replication=true)
+2023-06-13T05:13:05.803Z  INFO 8730 --- [nio-8761-exec-5] c.n.e.registry.AbstractInstanceRegistry  : Cancelled instance GATEWAY/ip-172-31-21-34.us-east-2.compute.internal:GATEWAY:8888 (replication=false)
+2023-06-13T05:13:06.313Z  WARN 8730 --- [nio-8761-exec-8] c.n.e.registry.AbstractInstanceRegistry  : DS: Registry: cancel failed because Lease is not registered for: GATEWAY/ip-172-31-21-34.us-east-2.compute.internal:GATEWAY:8888
+2023-06-13T05:13:06.313Z  INFO 8730 --- [nio-8761-exec-8] c.n.eureka.resources.InstanceResource    : Not Found (Cancel): GATEWAY - ip-172-31-21-34.us-east-2.compute.internal:GATEWAY:8888
+2023-06-13T05:13:06.315Z  WARN 8730 --- [get_localhost-9] c.n.eureka.cluster.ReplicationTask       : The replication of task GATEWAY/ip-172-31-21-34.us-east-2.compute.internal:GATEWAY:8888:Cancel@localhost failed with response code 404
+2023-06-13T05:13:06.317Z  WARN 8730 --- [get_localhost-9] c.netflix.eureka.cluster.PeerEurekaNode  : GATEWAY/ip-172-31-21-34.us-east-2.compute.internal:GATEWAY:8888:Cancel@localhost: missing entry.
+2023-06-13T05:13:36.229Z  INFO 8730 --- [io-8761-exec-10] c.n.e.registry.AbstractInstanceRegistry  : Registered instance GATEWAY/ip-172-31-21-34.us-east-2.compute.internal:GATEWAY:8888 with status UP (replication=false)
+2023-06-13T05:13:36.749Z  INFO 8730 --- [nio-8761-exec-1] c.n.e.registry.AbstractInstanceRegistry  : Registered instance GATEWAY/ip-172-31-21-34.us-east-2.compute.internal:GATEWAY:8888 with status UP (replication=true)
+2023-06-13T05:13:43.793Z  INFO 8730 --- [nio-8761-exec-5] c.n.e.registry.AbstractInstanceRegistry  : Registered instance GATEWAY/ip-172-31-21-34.us-east-2.compute.internal:GATEWAY:8888 with status DOWN (replication=false)
+2023-06-13T05:13:44.306Z  INFO 8730 --- [nio-8761-exec-6] c.n.e.registry.AbstractInstanceRegistry  : Registered instance GATEWAY/ip-172-31-21-34.us-east-2.compute.internal:GATEWAY:8888 with status DOWN (replication=true)
+2023-06-13T05:13:44.569Z  INFO 8730 --- [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+2023-06-13T05:13:48.837Z  INFO 8730 --- [nio-8761-exec-7] c.n.e.registry.AbstractInstanceRegistry  : Cancelled instance GATEWAY/ip-172-31-21-34.us-east-2.compute.internal:GATEWAY:8888 (replication=false)
+2023-06-13T05:13:49.354Z  WARN 8730 --- [io-8761-exec-10] c.n.e.registry.AbstractInstanceRegistry  : DS: Registry: cancel failed because Lease is not registered for: GATEWAY/ip-172-31-21-34.us-east-2.compute.internal:GATEWAY:8888
+2023-06-13T05:13:49.356Z  INFO 8730 --- [io-8761-exec-10] c.n.eureka.resources.InstanceResource    : Not Found (Cancel): GATEWAY - ip-172-31-21-34.us-east-2.compute.internal:GATEWAY:8888
+2023-06-13T05:13:49.358Z  WARN 8730 --- [et_localhost-12] c.n.eureka.cluster.ReplicationTask       : The replication of task GATEWAY/ip-172-31-21-34.us-east-2.compute.internal:GATEWAY:8888:Cancel@localhost failed with response code 404
+2023-06-13T05:13:49.358Z  WARN 8730 --- [et_localhost-12] c.netflix.eureka.cluster.PeerEurekaNode  : GATEWAY/ip-172-31-21-34.us-east-2.compute.internal:GATEWAY:8888:Cancel@localhost: missing entry.
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.4)
+
+2023-06-19T09:00:15.549Z  INFO 14561 --- [           main] c.eurekaserver.EurekaServerApplication   : Starting EurekaServerApplication v0.0.1-SNAPSHOT using Java 17.0.7 with PID 14561 (/home/ubuntu/mainNotif/backend/EurekaServerWorkspace/EurekaServer/target/EurekaServer-0.0.1-SNAPSHOT.jar started by ubuntu in /home/ubuntu/mainNotif/backend/EurekaServerWorkspace/EurekaServer)
+2023-06-19T09:00:15.561Z  INFO 14561 --- [           main] c.eurekaserver.EurekaServerApplication   : No active profile set, falling back to 1 default profile: "default"
+2023-06-19T09:00:17.587Z  INFO 14561 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=041648a8-7b9b-3df4-8e1d-9bedeeae1b2e
+2023-06-19T09:00:17.970Z  INFO 14561 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8761 (http)
+2023-06-19T09:00:17.983Z  INFO 14561 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-06-19T09:00:17.983Z  INFO 14561 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-06-19T09:00:18.092Z  INFO 14561 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-06-19T09:00:18.094Z  INFO 14561 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2416 ms
+2023-06-19T09:00:19.575Z  INFO 14561 --- [           main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON encoding codec LegacyJacksonJson
+2023-06-19T09:00:19.577Z  INFO 14561 --- [           main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON decoding codec LegacyJacksonJson
+2023-06-19T09:00:19.850Z  INFO 14561 --- [           main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML encoding codec XStreamXml
+2023-06-19T09:00:19.850Z  INFO 14561 --- [           main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML decoding codec XStreamXml
+2023-06-19T09:00:20.931Z  INFO 14561 --- [           main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2023-06-19T09:00:20.984Z  WARN 14561 --- [           main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2023-06-19T09:00:21.023Z  INFO 14561 --- [           main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2023-06-19T09:00:21.067Z  INFO 14561 --- [           main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2023-06-19T09:00:21.067Z  INFO 14561 --- [           main] com.netflix.discovery.DiscoveryClient    : Client configured to neither register nor query for data.
+2023-06-19T09:00:21.080Z  INFO 14561 --- [           main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1687165221079 with initial instances count: 0
+2023-06-19T09:00:21.142Z  INFO 14561 --- [           main] c.n.eureka.DefaultEurekaServerContext    : Initializing ...
+2023-06-19T09:00:21.145Z  INFO 14561 --- [           main] c.n.eureka.cluster.PeerEurekaNodes       : Adding new peer nodes [http://localhost:8761/eureka/]
+2023-06-19T09:00:21.364Z  INFO 14561 --- [           main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON encoding codec LegacyJacksonJson
+2023-06-19T09:00:21.365Z  INFO 14561 --- [           main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON decoding codec LegacyJacksonJson
+2023-06-19T09:00:21.365Z  INFO 14561 --- [           main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML encoding codec XStreamXml
+2023-06-19T09:00:21.366Z  INFO 14561 --- [           main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML decoding codec XStreamXml
+2023-06-19T09:00:21.524Z  INFO 14561 --- [           main] c.n.eureka.cluster.PeerEurekaNodes       : Replica node URL:  http://localhost:8761/eureka/
+2023-06-19T09:00:21.555Z  INFO 14561 --- [           main] c.n.e.registry.AbstractInstanceRegistry  : Finished initializing remote region registries. All known remote regions: []
+2023-06-19T09:00:21.560Z  INFO 14561 --- [           main] c.n.eureka.DefaultEurekaServerContext    : Initialized
+2023-06-19T09:00:21.576Z  INFO 14561 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-06-19T09:00:21.632Z  INFO 14561 --- [           main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application UNKNOWN with eureka with status UP
+2023-06-19T09:00:21.660Z  INFO 14561 --- [       Thread-9] o.s.c.n.e.server.EurekaServerBootstrap   : isAws returned false
+2023-06-19T09:00:21.661Z  INFO 14561 --- [       Thread-9] o.s.c.n.e.server.EurekaServerBootstrap   : Initialized server context
+2023-06-19T09:00:21.661Z  INFO 14561 --- [       Thread-9] c.n.e.r.PeerAwareInstanceRegistryImpl    : Got 1 instances from neighboring DS node
+2023-06-19T09:00:21.661Z  INFO 14561 --- [       Thread-9] c.n.e.r.PeerAwareInstanceRegistryImpl    : Renew threshold is: 1
+2023-06-19T09:00:21.661Z  INFO 14561 --- [       Thread-9] c.n.e.r.PeerAwareInstanceRegistryImpl    : Changing status to UP
+2023-06-19T09:00:21.671Z  INFO 14561 --- [       Thread-9] e.s.EurekaServerInitializerConfiguration : Started Eureka Server
+2023-06-19T09:00:21.690Z  INFO 14561 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8761 (http) with context path ''
+2023-06-19T09:00:21.691Z  INFO 14561 --- [           main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8761
+2023-06-19T09:00:21.719Z  INFO 14561 --- [           main] c.eurekaserver.EurekaServerApplication   : Started EurekaServerApplication in 6.993 seconds (process running for 7.816)
+2023-06-19T09:00:22.208Z  INFO 14561 --- [nio-8761-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-06-19T09:00:22.209Z  INFO 14561 --- [nio-8761-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-06-19T09:00:22.212Z  INFO 14561 --- [nio-8761-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2023-06-19T09:01:21.662Z  INFO 14561 --- [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+2023-06-19T09:02:21.663Z  INFO 14561 --- [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+2023-06-19T09:03:21.662Z  INFO 14561 --- [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+2023-06-19T09:03:48.824Z  INFO 14561 --- [nio-8761-exec-1] c.n.e.registry.AbstractInstanceRegistry  : Registered instance GATEWAY/ip-172-31-21-34:GATEWAY:8888 with status UP (replication=false)
+2023-06-19T09:03:49.614Z  INFO 14561 --- [nio-8761-exec-2] c.n.e.registry.AbstractInstanceRegistry  : Registered instance GATEWAY/ip-172-31-21-34:GATEWAY:8888 with status UP (replication=true)
+2023-06-19T09:03:55.138Z  INFO 14561 --- [nio-8761-exec-5] c.n.e.registry.AbstractInstanceRegistry  : Registered instance GATEWAY/ip-172-31-21-34:GATEWAY:8888 with status DOWN (replication=false)
+2023-06-19T09:03:55.652Z  INFO 14561 --- [nio-8761-exec-6] c.n.e.registry.AbstractInstanceRegistry  : Registered instance GATEWAY/ip-172-31-21-34:GATEWAY:8888 with status DOWN (replication=true)
+2023-06-19T09:04:00.182Z  INFO 14561 --- [nio-8761-exec-7] c.n.e.registry.AbstractInstanceRegistry  : Cancelled instance GATEWAY/ip-172-31-21-34:GATEWAY:8888 (replication=false)
+2023-06-19T09:04:00.696Z  WARN 14561 --- [io-8761-exec-10] c.n.e.registry.AbstractInstanceRegistry  : DS: Registry: cancel failed because Lease is not registered for: GATEWAY/ip-172-31-21-34:GATEWAY:8888
+2023-06-19T09:04:00.696Z  INFO 14561 --- [io-8761-exec-10] c.n.eureka.resources.InstanceResource    : Not Found (Cancel): GATEWAY - ip-172-31-21-34:GATEWAY:8888
+2023-06-19T09:04:00.699Z  WARN 14561 --- [et_localhost-11] c.n.eureka.cluster.ReplicationTask       : The replication of task GATEWAY/ip-172-31-21-34:GATEWAY:8888:Cancel@localhost failed with response code 404
+2023-06-19T09:04:00.699Z  WARN 14561 --- [et_localhost-11] c.netflix.eureka.cluster.PeerEurekaNode  : GATEWAY/ip-172-31-21-34:GATEWAY:8888:Cancel@localhost: missing entry.
+2023-06-19T09:04:15.797Z  INFO 14561 --- [nio-8761-exec-5] c.n.e.registry.AbstractInstanceRegistry  : Registered instance GATEWAY/ip-172-31-21-34:GATEWAY:8888 with status UP (replication=false)
+2023-06-19T09:04:16.312Z  INFO 14561 --- [nio-8761-exec-6] c.n.e.registry.AbstractInstanceRegistry  : Registered instance GATEWAY/ip-172-31-21-34:GATEWAY:8888 with status UP (replication=true)
+2023-06-19T09:04:21.663Z  INFO 14561 --- [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+2023-06-19T09:05:21.663Z  INFO 14561 --- [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+2023-06-19T09:06:21.663Z  INFO 14561 --- [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+2023-06-19T09:07:21.663Z  INFO 14561 --- [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+2023-06-19T09:08:21.663Z  INFO 14561 --- [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+2023-06-19T09:09:21.663Z  INFO 14561 --- [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+2023-06-19T09:10:21.663Z  INFO 14561 --- [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+2023-06-19T09:11:21.663Z  INFO 14561 --- [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+2023-06-19T09:12:21.663Z  INFO 14561 --- [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+2023-06-19T09:12:39.663Z  INFO 14561 --- [nio-8761-exec-5] c.n.e.registry.AbstractInstanceRegistry  : Registered instance EMAILMICROSERVICE/ip-172-31-21-34:emailmicroservice:8081 with status UP (replication=false)
+2023-06-19T09:12:40.179Z  INFO 14561 --- [nio-8761-exec-6] c.n.e.registry.AbstractInstanceRegistry  : Registered instance EMAILMICROSERVICE/ip-172-31-21-34:emailmicroservice:8081 with status UP (replication=true)
+2023-06-19T09:13:21.663Z  INFO 14561 --- [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+2023-06-19T09:14:21.663Z  INFO 14561 --- [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+2023-06-19T09:15:21.555Z  INFO 14561 --- [hresholdUpdater] c.n.e.r.PeerAwareInstanceRegistryImpl    : Current renewal threshold is : 5
+2023-06-19T09:15:21.663Z  INFO 14561 --- [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+2023-06-19T09:16:21.663Z  INFO 14561 --- [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+2023-06-19T09:17:21.663Z  INFO 14561 --- [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+2023-06-19T09:18:21.663Z  INFO 14561 --- [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+2023-06-19T09:19:21.663Z  INFO 14561 --- [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+2023-06-19T09:20:21.663Z  INFO 14561 --- [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+2023-06-19T09:21:21.663Z  INFO 14561 --- [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+2023-06-19T09:22:21.663Z  INFO 14561 --- [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+2023-06-19T09:23:21.663Z  INFO 14561 --- [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+2023-06-19T09:24:21.663Z  INFO 14561 --- [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+2023-06-19T09:25:21.663Z  INFO 14561 --- [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+2023-06-19T09:26:21.663Z  INFO 14561 --- [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+2023-06-19T09:27:21.663Z  INFO 14561 --- [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+2023-06-19T09:28:21.663Z  INFO 14561 --- [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+2023-06-19T09:29:21.663Z  INFO 14561 --- [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+2023-06-19T09:30:21.556Z  INFO 14561 --- [hresholdUpdater] c.n.e.r.PeerAwareInstanceRegistryImpl    : Current renewal threshold is : 5
+2023-06-19T09:30:21.663Z  INFO 14561 --- [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+2023-06-19T09:31:21.663Z  INFO 14561 --- [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+2023-06-19T09:32:21.663Z  INFO 14561 --- [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+2023-06-19T09:33:21.663Z  INFO 14561 --- [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+2023-06-19T09:34:21.663Z  INFO 14561 --- [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+2023-06-19T09:35:21.663Z  INFO 14561 --- [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+2023-06-19T09:36:21.663Z  INFO 14561 --- [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+2023-06-19T09:37:21.663Z  INFO 14561 --- [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+2023-06-19T09:38:21.663Z  INFO 14561 --- [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+2023-06-19T09:39:21.663Z  INFO 14561 --- [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+2023-06-19T09:40:21.663Z  INFO 14561 --- [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+2023-06-19T09:41:21.663Z  INFO 14561 --- [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+2023-06-19T09:42:21.663Z  INFO 14561 --- [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+2023-06-19T09:43:21.663Z  INFO 14561 --- [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+2023-06-19T09:43:52.352Z  INFO 14561 --- [nio-8761-exec-8] c.n.e.registry.AbstractInstanceRegistry  : Registered instance EMAILMICROSERVICE/ip-172-31-21-34:emailmicroservice:8081 with status DOWN (replication=false)
+2023-06-19T09:43:52.863Z  INFO 14561 --- [io-8761-exec-10] c.n.e.registry.AbstractInstanceRegistry  : Registered instance EMAILMICROSERVICE/ip-172-31-21-34:emailmicroservice:8081 with status DOWN (replication=true)
+2023-06-19T09:43:55.389Z  INFO 14561 --- [nio-8761-exec-9] c.n.e.registry.AbstractInstanceRegistry  : Cancelled instance EMAILMICROSERVICE/ip-172-31-21-34:emailmicroservice:8081 (replication=false)
+2023-06-19T09:43:55.901Z  WARN 14561 --- [nio-8761-exec-3] c.n.e.registry.AbstractInstanceRegistry  : DS: Registry: cancel failed because Lease is not registered for: EMAILMICROSERVICE/ip-172-31-21-34:emailmicroservice:8081
+2023-06-19T09:43:55.901Z  INFO 14561 --- [nio-8761-exec-3] c.n.eureka.resources.InstanceResource    : Not Found (Cancel): EMAILMICROSERVICE - ip-172-31-21-34:emailmicroservice:8081
+2023-06-19T09:43:55.903Z  WARN 14561 --- [et_localhost-13] c.n.eureka.cluster.ReplicationTask       : The replication of task EMAILMICROSERVICE/ip-172-31-21-34:emailmicroservice:8081:Cancel@localhost failed with response code 404
+2023-06-19T09:43:55.903Z  WARN 14561 --- [et_localhost-13] c.netflix.eureka.cluster.PeerEurekaNode  : EMAILMICROSERVICE/ip-172-31-21-34:emailmicroservice:8081:Cancel@localhost: missing entry.
+2023-06-19T09:44:21.663Z  INFO 14561 --- [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+2023-06-19T09:45:21.555Z  INFO 14561 --- [hresholdUpdater] c.n.e.r.PeerAwareInstanceRegistryImpl    : Current renewal threshold is : 3
+2023-06-19T09:45:21.663Z  INFO 14561 --- [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+2023-06-19T09:46:21.664Z  INFO 14561 --- [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+2023-06-19T09:47:21.663Z  INFO 14561 --- [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+2023-06-19T09:48:21.664Z  INFO 14561 --- [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms

@@ -1,0 +1,64 @@
+.loginbg{
+    margin: 120px;
+    margin-bottom: 20px;
+    padding: 50px;
+    border-style: dotted;
+    border-radius: 10px;
+    background-color: hsl(0, 0%, 96%);
+   }
+
+.loginbtn{
+    width: 300px;
+    height: auto;
+    margin-left: 75px;
+}
+
+.accountCheckTitle{
+    width: 300px;
+    height: auto;
+    margin-left: 120px;
+}
+
+.loginTitle{
+    margin-bottom: 15px;
+}
+
+.Short {  
+    width: 100%;  
+    background-color: #dc3545;  
+    margin-top: 5px;  
+    height: 3px;  
+    color: #dc3545;  
+    font-weight: 500;  
+    font-size: 12px;  
+}  
+.Weak {  
+    width: 100%;  
+    background-color: #ffc107;  
+    margin-top: 5px;  
+    height: 3px;  
+    color: #ffc107;  
+    font-weight: 500;  
+    font-size: 12px;  
+}  
+.Good {  
+    width: 100%;  
+    background-color: #28a745;  
+    margin-top: 5px;  
+    height: 3px;  
+    color: #28a745;  
+    font-weight: 500;  
+    font-size: 12px;  
+}  
+.Strong {  
+    width: 100%;  
+    background-color: #d39e00;  
+    margin-top: 5px;  
+    height: 3px;  
+    color: #d39e00;  
+    font-weight: 500;  
+    font-size: 12px;  
+}  
+#strengthMessage{
+    margin-bottom: 15px;
+}

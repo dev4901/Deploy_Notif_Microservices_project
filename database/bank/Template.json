@@ -1,0 +1,25 @@
+[{
+  "_id": {
+    "$oid": "64456e1a2f31045aac6ac11e"
+  },
+  "name": "Push Notification Template",
+  "subject": "Credit Card Alert ! $ ~",
+  "body": "Hey $, Your credite card number ****$ expairy on $ so extend as soon as posslible...",
+  "_class": "com.bank.model.Template"
+},{
+  "_id": {
+    "$oid": "64456e6d2f31045aac6ac11f"
+  },
+  "name": "Email Template",
+  "subject": "Regarding Internal Semester Results",
+  "body": "Dear $,\n\nWe are pleased to inform you that the results for your recent exams have been released. We would like to congratulate you on your performance and hard work throughout the semester.\n\nwe are pleased to report that you have achieved $.\n\nIf you have any questions, please don't hesitate to contact us at testservice158@gmail.com.\n\nBest regards,\n\n$,\n$.",
+  "_class": "com.bank.model.Template"
+},{
+  "_id": {
+    "$oid": "64456ebc2f31045aac6ac120"
+  },
+  "name": "SMS Template",
+  "subject": "Regarding Internal Semester Results",
+  "body": "Dear $,\n\nWe are pleased to inform you that the results for your recent exams have been released. We would like to congratulate you on your performance and hard work throughout the semester.\n\nwe are pleased to report that you have achieved $.\n\nIf you have any questions, please don't hesitate to contact us at testservice158@gmail.com.\n\nBest regards,\n\n$,\n$.",
+  "_class": "com.bank.model.Template"
+}]

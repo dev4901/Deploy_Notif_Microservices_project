@@ -1,0 +1,223 @@
+package com.student.controller;
+
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.student.externalservice.EmailService;
+import com.student.externalservice.PNService;
+import com.student.externalservice.SMSService;
+import com.student.model.CallCountEmail;
+import com.student.model.EmailAdmin;
+import com.student.model.PNAdmin;
+import com.student.model.SMSAdmin;
+import com.student.model.Student;
+import com.student.model.Template;
+import com.student.service.CallCountEmailService;
+import com.student.service.EmailAdminservice;
+import com.student.service.PNAdminservice;
+import com.student.service.SMSAdminservice;
+import com.student.service.StudentService;
+import com.student.service.TemplateService;
+
+@RestController
+//@RequestMapping("/student")
+@CrossOrigin(origins="http://localhost:3000/")
+public class StudentController {
+	
+	@Autowired
+	StudentService studentService;
+	
+	@Autowired
+	TemplateService templateService;
+	
+	@Autowired
+	EmailAdminservice emailService;
+	
+	@Autowired
+	SMSAdminservice smsService;
+	
+	@Autowired
+	PNAdminservice pnService;
+	
+	@Autowired
+	EmailService externalEmailService;
+	
+	@Autowired
+	SMSService externalSmsService;
+	
+	@Autowired
+	PNService externalPNService;
+	
+	
+	@Autowired
+	CallCountEmailService callCountEmailService;
+	
+	//API to get all students details 
+	@GetMapping("/student")
+	public List<Student> getStudents()
+	{
+//		jwtUtils.validateToken(token);
+		System.out.println("helo");
+		return studentService.getStudents();
+	}
+	
+	
+	//API to add students 
+	@PostMapping("/student")
+	public Student addStudent(@RequestBody Student student)
+	{
+		System.out.println(student);
+//		jwtUtils.validateToken(token);
+		return studentService.addStudent(student);
+	}
+	
+	@GetMapping("/getStudentById/{studentId}")
+	public Student getStudentById(@PathVariable Long studentId)
+	{
+		System.out.println(studentId);
+//		jwtUtils.validateToken(token);
+		return studentService.getStudentById(studentId);
+	}
+	
+	@PutMapping("/updateStudentData")
+	public Student updateStudentData(@RequestBody Student student)
+	{
+		System.out.println(student);
+//		jwtUtils.validateToken(token);
+		return studentService.updateStudent(student);
+	}
+	
+	@DeleteMapping("/deleteStudentById/{studentId}")
+	public Long deleteStudentById(@PathVariable Long studentId)
+	{
+		System.out.println(studentId);
+//		jwtUtils.validateToken(token);
+		return studentService.deleteStudentById(studentId);
+	}
+	
+	@GetMapping("/getEmailServiceCallCount")
+	public CallCountEmail getCallCountEmailService()
+	{
+//		jwtUtils.validateToken(token);
+		return callCountEmailService.getCallCount();
+	}
+	
+	@PostMapping("/setInitalCallCountEmailService")
+	public CallCountEmail setInitalCallCountEmailService()
+	{
+//		jwtUtils.validateToken(token);
+		return callCountEmailService.SetInitialValue();
+	}
+	
+	@PostMapping("/sendmail")
+	public List<ResponseEntity<String>> callEmailService()
+	{
+//		jwtUtils.validateToken(token);
+		return externalEmailService.callEmailService();
+	}
+	
+	@PostMapping("/sendmailbyid")
+	public ResponseEntity<String> callEmailServiceforid(@RequestBody String studentEmail)
+	{
+//		jwtUtils.validateToken(token);
+		System.out.println(studentEmail+"send");
+		return externalEmailService.callEmailServiceForId(studentEmail);
+	}
+	
+	@PostMapping("/sendsms")
+	public String callSMSService()
+	{
+//		jwtUtils.validateToken(token);
+		return externalSmsService.callSMSService();
+	}
+	
+	@PostMapping("/sendpn")
+	public String callPNService()
+	{
+//		jwtUtils.validateToken(token);
+		return externalPNService.callPNService();
+	}
+	
+	@PostMapping("/addemailadmin")
+	public EmailAdmin addemaildata(@RequestBody EmailAdmin emailAdmin)
+	{
+//		jwtUtils.validateToken(token);
+		return emailService.addemail(emailAdmin);
+	}
+	
+	@PostMapping("/addsmsadmin")
+	public SMSAdmin addsmsdata(@RequestBody SMSAdmin smsAdmin)
+	{
+//		jwtUtils.validateToken(token);
+		return smsService.addsms(smsAdmin);
+	}
+	
+	@PostMapping("/addpnadmin")
+	public PNAdmin addpndata(@RequestBody PNAdmin pnAdmin)
+	{
+//		jwtUtils.validateToken(token);
+		return pnService.addpn(pnAdmin);
+	}
+	
+	@PostMapping("/addtemplate")
+	public Template addtemplatedata(@RequestBody Template template)
+	{
+//		jwtUtils.validateToken(token);
+		return templateService.addtemplate(template);
+	}
+	
+	@GetMapping("/getemailadmin")
+	public List<EmailAdmin> getemaildata()
+	{
+//		jwtUtils.validateToken(token);
+		return emailService.getAll();
+	}
+
+	@GetMapping("/getsmsadmin")
+	public List<SMSAdmin> getsmsdata()
+	{
+//		jwtUtils.validateToken(token);
+		return smsService.getAll();
+	}
+	
+	@GetMapping("/getpnadmin")
+	public List<PNAdmin> getpndata()
+	{
+//		jwtUtils.validateToken(token);
+		return pnService.getAll();
+	}
+	
+	@GetMapping("/gettemplate")
+	public List<Template> gettemplatedata()
+	{
+//		jwtUtils.validateToken(token);
+		return templateService.getAll();
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

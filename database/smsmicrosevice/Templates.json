@@ -1,0 +1,9 @@
+[{
+  "_id": {
+    "$oid": "64369bfb791c177aba94c040"
+  },
+  "name": "Student Marks",
+  "subject": "Regarding Internal Semester Results",
+  "body": "Dear $,\n\nWe are pleased to inform you that the results for your recent exams have been released. We would like to congratulate you on your performance and hard work throughout the semester.\n\nwe are pleased to report that you have achieved $.\n\nIf you have any questions, please don't hesitate to contact us at testservice158@gmail.com.\n\nBest regards,\n\n$,\n$.",
+  "_class": "com.smsservice.model.SMS"
+}]

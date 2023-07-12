@@ -1,0 +1,25 @@
+FROM openjdk:17-alpine AS final
+FROM maven:3.8.3-openjdk-17 as build
+COPY . ./code
+RUN rm -rf /root/.m2
+WORKDIR ./code
+#RUN microdnf install iputils procps
+# RUN sed -i '0,/localhost/s//172.19.0.3/' src/main/resources/application.properties
+# RUN sed -i 's/localhost:3000/18.191.211.71:3000/; s/localhost:8888/172.19.0.4:8888/' src/main/java/com/hospital/controller/HospitalController.java
+# RUN sed -i 's/localhost:8888/172.19.0.4:8888/' src/main/java/com/hospital/externalservices/SMSService.java
+#RUN sed -i 's/localhost/172.19.0.2/' src/main/resources/application.properties
+ARG machine_ip
+ENV host_ip=${machine_ip}
+RUN bash change_ips.bash
+RUN mvn clean package
+#CMD java -jar -Djdk.util.jar.enableMultiRelease=false target/EmailService-0.0.1-SNAPSHOT.jar
+
+FROM final
+COPY --from=build ./code/src/main/java/com/hospital/controller/HospitalController.java ./jar/
+COPY --from=build ./code/src/main/java/com/hospital/externalservices/SMSService.java ./jar/
+COPY --from=build ./code/src/main/resources/application.* ./jar/
+COPY --from=build ./code/target/Hospital-0.0.1-SNAPSHOT.jar ./jar/
+WORKDIR ./jar
+EXPOSE 8086
+#CMD sh
+CMD ["nohup","java","-jar", "-Djdk.util.jar.enableMultiRelease=false", "Hospital-0.0.1-SNAPSHOT.jar", "&"]

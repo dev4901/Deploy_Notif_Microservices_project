@@ -1,0 +1,19 @@
+[{
+  "_id": 414,
+  "patientName": "Divyesh Variya",
+  "doctorName": "Jashwant Dave",
+  "appointmentTime": "8",
+  "appointmentDate": "2023-04-29",
+  "hospitalName": "City Hospital",
+  "contactNo": "7778029116",
+  "_class": "com.hospital.model.Patient"
+},{
+  "_id": 698,
+  "patientName": "Jhanvi  Jethwa",
+  "doctorName": "Vinod Thamur",
+  "appointmentTime": "5",
+  "appointmentDate": "2023-05-03",
+  "hospitalName": "Plus Hospital",
+  "contactNo": "9726006663",
+  "_class": "com.hospital.model.Patient"
+}]

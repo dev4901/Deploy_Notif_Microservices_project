@@ -1,0 +1,8 @@
+[{
+  "_id": {
+    "$oid": "64456db72f31045aac6ac11c"
+  },
+  "fcm_api": "https://fcm.googleapis.com/fcm/send",
+  "server_key": "AAAA8l7Hy9Q:APA91bFkB8t-RSn_XLwLx0q4zeJNQEntAbGoXdaGRfNZjfQcBP8PTa4pqjgRJlst0kOtGPM5JhD52LuQZYF_U2wG9pDzQfzjN44p_Vb4pQjLbTILZaebD6vRcCuN1ahheA9BEQFUSLj9",
+  "_class": "com.bank.model.PNAdmin"
+}]

@@ -1,0 +1,10 @@
+server.port=8089
+spring.application.name=authentication
+
+#Database Configuration
+spring.data.mongodb.database=authenticate
+spring.data.mongodb.host=172.19.0.3
+spring.data.mongodb.port=27017
+
+eureka.client.service-url.defaultZone=http://172.19.0.2:8761/eureka
+eureka.instance.hostname=172.19.0.2

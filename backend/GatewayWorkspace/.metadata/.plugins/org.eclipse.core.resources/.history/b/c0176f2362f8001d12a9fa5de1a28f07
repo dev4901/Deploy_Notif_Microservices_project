@@ -1,0 +1,40 @@
+#spring:
+# cloud:
+#   gateway:
+#     routes:
+#       - id: emailmicroservice
+#         uri: lb://emailmicroservice
+#         predicates:
+#           - Path=/email/**
+##         filters:
+##           - AuthenticationFilter
+#           
+#       - id: smsmicroservice
+#         uri: lb://smsmicroservice
+#         predicates:
+#           - Path=/sms/**
+##         filters:
+##           - AuthenticationFilter
+#           
+#       - id: pushnotificationmicrosevice
+#         uri: lb://pushnotificationmicrosevice
+#         predicates:
+#           - Path=/pushnotification/**
+##         filters:
+##           - AuthenticationFilter
+#           
+#       - id: identity
+#         uri: lb://identity
+#         predicates:
+#           - Path=/identity/**
+#
+#
+#
+#       
+# application:
+#   name: GATEWAY
+#
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone : http://localhost:8761/eureka/

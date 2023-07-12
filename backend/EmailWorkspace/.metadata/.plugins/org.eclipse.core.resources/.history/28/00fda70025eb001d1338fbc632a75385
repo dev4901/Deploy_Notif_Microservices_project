@@ -1,0 +1,102 @@
+package com.emailservice.controller;
+
+import static org.hamcrest.CoreMatchers.any;
+import static org.hamcrest.CoreMatchers.containsString;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.MockMvc;
+
+import com.emailservice.model.ConfigMail;
+import com.emailservice.service.EmailService;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
+import com.fasterxml.jackson.databind.SerializationFeature;
+
+@WebMvcTest(EmailController.class)
+class EmailControllerTest {
+
+	@Autowired
+	private MockMvc mockMvc;
+
+	@MockBean
+	private EmailService emailService;
+
+	ConfigMail configMail;
+	final String mailTo="variya187@gmail.com";
+	final String mailSubject="test";
+	final String mailBody="perform test case...";
+	final String mailFrom="dwarkeshdhamecha@gmail.com";
+	final String mailPass="12345";
+	
+	
+	@BeforeEach
+	void setUp() throws Exception {
+		configMail = new ConfigMail("smtp.gmail.com", "465", "true", "465", "true", "true");
+	}
+
+	@Test
+	void testGetHome() throws Exception {
+		// TODO
+
+		this.mockMvc.perform(get("/email/home")).andDo(print()).andExpect(status().isOk())
+				.andExpect(content().string((containsString("Welcome to email service"))));
+	}
+
+	@Test
+	void testAddconfig() throws Exception {
+		// TODO
+		ObjectMapper mapper = new ObjectMapper();
+		mapper.configure(SerializationFeature.WRAP_ROOT_VALUE, false);
+		ObjectWriter ow = mapper.writer().withDefaultPrettyPrinter();
+		String requestJson = ow.writeValueAsString(configMail);
+
+		when(emailService.addConfig(configMail)).thenReturn(configMail);
+		this.mockMvc.perform(post("/email/addconfig").contentType(MediaType.APPLICATION_JSON).content(requestJson))
+				.andDo(print()).andExpect(status().isOk());
+	}
+
+	@Test
+	void testSendMail() throws Exception {
+		// TODO
+		Map<String, Object> emailData= new HashMap();
+		emailData.put("to",mailTo);
+		emailData.put("subject", mailSubject);
+		emailData.put("body", mailBody);
+		emailData.put("from", mailFrom);
+		emailData.put("password", mailPass);
+		ObjectMapper mapper = new ObjectMapper();
+		mapper.configure(SerializationFeature.WRAP_ROOT_VALUE, false);
+		ObjectWriter ow = mapper.writer().withDefaultPrettyPrinter();
+		String requestJson = ow.writeValueAsString(emailData);
+		
+		EmailService es= mock(EmailService.class);
+		doNothing().when(es).sendmail(anyString(),anyString(),anyString(),anyString(),anyString());
+		this.mockMvc.perform(post("/email/sendmail").contentType(MediaType.APPLICATION_JSON).content(requestJson))
+		.andDo(print()).andExpect(status().isOk());
+
+//		verify(emailService,times(1)).sendmail("variya187@gmail.com", "test","perform test case..." ,"dwarkeshdhamecha@gmail.com" , "12345");
+		}
+
+	@AfterEach
+	void tearDown() throws Exception {
+	}
+}

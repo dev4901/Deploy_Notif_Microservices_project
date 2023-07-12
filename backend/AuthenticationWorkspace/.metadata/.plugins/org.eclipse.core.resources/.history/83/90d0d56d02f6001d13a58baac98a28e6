@@ -1,0 +1,84 @@
+package com.authenticate.service;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+
+import com.authenticate.model.User;
+import com.authenticate.repository.UserRepository;
+@Service
+public class AuthenticateServiceImpl implements AuthenticateService{
+
+	@Autowired
+	UserRepository userRepository; 
+	
+	@Autowired
+	PasswordEncoder passwordEncoder;
+	
+	@Override
+	public Boolean addUser(User user) {
+		// TODO Auto-generated method stub
+		user.setRoles("ROLE_USER");
+		User u=userRepository.save(user);
+		if(u.equals(null))
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+	}
+
+	@Override
+	public Boolean checkEmailIdPassword(String emailId, String password) {
+		// TODO Auto-generated method stub
+		System.out.println(emailId+password);
+		User u=userRepository.findById(emailId).get();
+		System.out.println(u);
+//		System.out.println(passwordEncoder.encode(password));
+//		System.out.println(passwordEncoder.encode(password));
+		if(u.getPassword().equals(password))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	@Override
+	public Boolean findByEmail(String emailId) {
+		// TODO Auto-generated method stub
+		Optional<User> u= userRepository.findById(emailId);
+		if(u.isEmpty())
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+	}
+
+	@Override
+	public Boolean changePassword(String emailId, String password) {
+		// TODO Auto-generated method stub
+		Optional<User> u=userRepository.findById(emailId);
+		if(u.isEmpty())
+		{
+			return false;
+		}
+		else
+		{
+			u.get().setPassword(password);
+			userRepository.save(u.get());
+			return true;
+		}
+	}
+
+	
+}

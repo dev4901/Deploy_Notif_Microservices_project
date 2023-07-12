@@ -1,0 +1,5 @@
+package com.authenticate.model;
+
+public class Authrequest {
+
+}

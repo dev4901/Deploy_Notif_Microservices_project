@@ -1,0 +1,17 @@
+[{
+  "_id": 786,
+  "customerName": "Jhanvi Jethwa",
+  "cardNo": "987712340987",
+  "expairyDate": "2023-05-06",
+  "bankName": "Gujarat Bank",
+  "appToken": "cKs_VeuUSSKVTj5gFdRltj:APA91bF7RLhfCM8F4L2kRL5_f8mwEWpT_Z2ys6miLd9f2onV0_NV_Xn5BvZD3O8WlKx3KPF42a0vTKsc35IFgMlZPPLrAeaCAhQuBth_ZZ7AHIH00alQYG3w3A5pXqPz4jh5D9SFbQr3",
+  "_class": "com.bank.model.Customer"
+},{
+  "_id": 888,
+  "customerName": "Jaydeep Zanzmera",
+  "cardNo": "456709871234",
+  "expairyDate": "2023-05-03",
+  "bankName": "Gujarat Bank",
+  "appToken": "fr2iuD5SSvOL4pno-Kz-IT:APA91bF3L0ma8Y5pdLui9cyH-1nzWE0NuOo5t8iXsJjAh9NY3uDgWXdG1eK5zxXH9Fa1pkQvWIqtjzCHKoY8iyKiXmadqjgaqCTwqMzs4SVT0KadFFwkpR1PdN5tMwOZBSSCwwJG7XS-",
+  "_class": "com.bank.model.Customer"
+}]

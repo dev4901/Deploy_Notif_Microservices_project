@@ -1,0 +1,8 @@
+[{
+  "_id": {
+    "$oid": "6437a9a4c505cc5af1612283"
+  },
+  "title": "Internal Semester Results",
+  "body": "Dear $, your percentage is $% in the recent exam.",
+  "_class": "com.pushnotificationservice.model.PushNotification"
+}]

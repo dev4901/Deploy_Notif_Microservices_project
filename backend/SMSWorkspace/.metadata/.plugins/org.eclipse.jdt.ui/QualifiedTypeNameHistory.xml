@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
+    <fullyQualifiedTypeName name="java.util.Map"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
+    <fullyQualifiedTypeName name="io.jsonwebtoken.Jwts"/>
+    <fullyQualifiedTypeName name="com.netflix.eureka.registry.Key"/>
+    <fullyQualifiedTypeName name="java.security.Key"/>
+    <fullyQualifiedTypeName name="io.jsonwebtoken.io.Decoders"/>
+    <fullyQualifiedTypeName name="io.jsonwebtoken.security.Keys"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="com.smsservice.Utils.JwtUtils"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestHeader"/>
+    <fullyQualifiedTypeName name="org.springframework.boot.web.servlet.error.ErrorController"/>
+</qualifiedTypeNameHistroy>

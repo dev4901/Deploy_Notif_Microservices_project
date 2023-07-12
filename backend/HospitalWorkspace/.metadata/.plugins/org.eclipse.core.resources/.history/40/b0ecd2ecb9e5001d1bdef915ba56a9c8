@@ -1,0 +1,162 @@
+package com.hospital.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.hospital.externalservices.EmailService;
+import com.hospital.externalservices.PNService;
+import com.hospital.externalservices.SMSService;
+import com.hospital.model.CallCountSms;
+import com.hospital.model.EmailAdmin;
+import com.hospital.model.PNAdmin;
+import com.hospital.model.Patient;
+import com.hospital.model.SMSAdmin;
+import com.hospital.model.Template;
+import com.hospital.services.CallCountSmsService;
+import com.hospital.services.EmailAdminService;
+import com.hospital.services.PNAdminService;
+import com.hospital.services.PatientService;
+import com.hospital.services.SMSAdminService;
+import com.hospital.services.TemplateService;
+
+@RestController
+@CrossOrigin("http://localhost:3000/")
+public class HospitalController {
+
+	@Autowired
+	PatientService patientService;
+	
+	@Autowired
+	EmailAdminService emailAdminService;
+	
+	@Autowired
+	SMSAdminService smsAdminService;
+	
+	@Autowired
+	PNAdminService pnAdminService;
+	
+	@Autowired
+	TemplateService templateService;
+	
+	@Autowired
+	EmailService emailService;
+	
+	@Autowired
+	SMSService smsService;
+	
+	@Autowired
+	PNService pnService;
+	
+	@Autowired
+	CallCountSmsService callCountSmsService;
+	
+
+	@GetMapping("/getpatients")
+	public List<Patient> getPatients() {
+		return patientService.getAllPatients();
+	}
+
+	@PostMapping("/addpatient")
+	public Patient addPatient(@RequestBody Patient patient) {
+		return patientService.addPatient(patient);
+	}
+	
+	@GetMapping("/getPatientById/{patientId}")
+	public Patient getPatientById(@PathVariable Long patientId)
+	{
+		System.out.println(patientId);
+		return patientService.findPatientById(patientId);
+	}
+	
+	@PutMapping("/updatePatientData")
+	public Patient updatePatientData(@RequestBody Patient patient)
+	{
+		System.out.println(patient);
+		return patientService.updatePatient(patient);
+	}
+	
+	@DeleteMapping("/deletePatientById/{patientId}")
+	public Long deletePatientById(@PathVariable Long patientId)
+	{
+		System.out.println(patientId);
+		return patientService.deletePatientById(patientId);
+	}
+
+	@PostMapping("/setInitalCallCountSmsService")
+	public CallCountSms setInitalCallCountSmsService()
+	{
+		return callCountSmsService.SetInitialValue();
+	}
+
+	@PostMapping("/sendmail")
+	public String callEmailService() {
+		return emailService.callEmailService();
+	}
+
+	@PostMapping("/sendsms")
+	public List<ResponseEntity<String>> callSMSService() {
+		return smsService.callSMSService();
+	}
+	
+	@PostMapping("/sendsmsbycontactno")
+	public ResponseEntity<String> callSMSServiceByContact(@RequestBody String contactNo) {
+		return smsService.callSMSServiceById(contactNo);
+	}
+
+	@PostMapping("/sendpn")
+	public String callPNService() {
+		return pnService.callPNService();
+	}
+
+	@PostMapping("/addemailadmin")
+	public EmailAdmin addemaildata(@RequestBody EmailAdmin emailAdmin) {
+		return emailAdminService.addEmailAdmin(emailAdmin);
+	}
+
+	@PostMapping("/addsmsadmin")
+	public SMSAdmin addsmsdata(@RequestBody SMSAdmin smsAdmin) {
+		return smsAdminService.addSMSAdmin(smsAdmin);
+	}
+
+	@PostMapping("/addpnadmin")
+	public PNAdmin addpndata(@RequestBody PNAdmin pnAdmin) {
+		return pnAdminService.addPNAdmin(pnAdmin);
+	}
+
+	@PostMapping("/addtemplate")
+	public Template addtemplatedata(@RequestBody Template template) {
+		return templateService.addTemplate(template);
+	}
+	
+	@GetMapping("/getemailadmin")
+	public List<EmailAdmin> getemaildata() {
+		return emailAdminService.getEmailAdmins();
+	}
+
+	@GetMapping("/getsmsadmin")
+	public List<SMSAdmin> getsmsdata() {
+		return smsAdminService.getSMSAdmins();
+	}
+
+	@GetMapping("/getpnadmin")
+	public List<PNAdmin> getpndata() {
+		return pnAdminService.getPNAdmins();
+	}
+
+	@GetMapping("/gettemplate")
+	public List<Template> gettemplatedata() {
+		return templateService.getTemplates();
+	}
+
+}

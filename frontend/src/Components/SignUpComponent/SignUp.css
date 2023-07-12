@@ -1,0 +1,141 @@
+.signupbg{
+    margin: 50px;
+    margin-top: 120px;
+    margin-bottom: 20px;
+    /* padding: 50px; */
+    width: auto;
+    border-style: dotted;
+    border-radius: 10px;
+    background-color: hsl(0, 0%, 96%);
+   }
+   .background-radial-gradient {
+    background-color: hsl(218, 41%, 15%);
+    background-image: radial-gradient(650px circle at 0% 0%,
+        hsl(218, 41%, 35%) 15%,
+        hsl(218, 41%, 30%) 35%,
+        hsl(218, 41%, 20%) 75%,
+        hsl(218, 41%, 19%) 80%,
+        transparent 100%),
+      radial-gradient(1250px circle at 100% 100%,
+        hsl(218, 41%, 45%) 15%,
+        hsl(218, 41%, 30%) 35%,
+        hsl(218, 41%, 20%) 75%,
+        hsl(218, 41%, 19%) 80%,
+        transparent 100%);
+  }
+  
+  #radius-shape-1 {
+    height: 220px;
+    width: 220px;
+    top: -60px;
+    left: -130px;
+    background: radial-gradient(#44006b, #ad1fff);
+    overflow: hidden;
+  }
+  
+  #radius-shape-2 {
+    border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
+    bottom: -60px;
+    right: -110px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(#44006b, #ad1fff);
+    overflow: hidden;
+  }
+  
+  .bg-glass {
+    background-color: hsla(0, 0%, 100%, 0.9) !important;
+    backdrop-filter: saturate(200%) blur(25px);
+  }
+
+  .signUpText {
+    font-size: 20px;
+    font-family: serif;
+    color:rgb(240, 240, 240);
+    text-align: center;
+    animation: animate 
+        1.5s linear infinite;
+}
+
+@keyframes animate {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.wrapper {
+    /* height: 100vh; */
+    /*This part is important for centering*/
+    display: grid;
+    place-items: center;
+  }
+  
+  .typing-demo {
+    width: 22ch;
+    animation: typing 2s steps(30), blink .5s step-end infinite alternate;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid;
+    font-family: monospace;
+    font-size: 2em;
+  }
+  
+  @keyframes typing {
+    from {
+      width: 0
+    }
+  }
+      
+  @keyframes blink {
+    50% {
+      border-color: transparent
+    }
+  }
+
+  .Short {  
+    width: 100%;  
+    background-color: #dc3545;  
+    margin-top: 5px;  
+    height: 3px;  
+    color: #dc3545;  
+    font-weight: 500;  
+    font-size: 12px;  
+}  
+.Weak {  
+    width: 100%;  
+    background-color: #ffc107;  
+    margin-top: 5px;  
+    height: 3px;  
+    color: #ffc107;  
+    font-weight: 500;  
+    font-size: 12px;  
+}  
+.Good {  
+    width: 100%;  
+    background-color: #28a745;  
+    margin-top: 5px;  
+    height: 3px;  
+    color: #28a745;  
+    font-weight: 500;  
+    font-size: 12px;  
+}  
+.Strong {  
+    width: 100%;  
+    background-color: #d39e00;  
+    margin-top: 5px;  
+    height: 3px;  
+    color: #d39e00;  
+    font-weight: 500;  
+    font-size: 12px;  
+}  
+#strengthMessage,#strengthMessage1{
+    margin-bottom: 20px;
+}

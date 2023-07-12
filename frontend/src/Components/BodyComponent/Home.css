@@ -1,0 +1,38 @@
+.homebg{
+   margin-top: 90px;
+   padding: 50px;
+    height: auto;
+    width: 100%;
+   background-image: url("https://www.hvac-sanitary.co.uk/wp-content/uploads/2020/09/Pre-sales-Support.jpg");
+   background-repeat: no-repeat;
+   background-size: 100% 500px;
+   /* radial-gradient(circle farthest-side, #fceabb, #ddaf08); */ 
+  }
+  .title{
+    font-size: 70px;
+    margin: 20px;
+    padding: 20px;
+  }
+  .smalltitle{
+    margin: 40px;
+    color: rgb(4, 6, 6);
+  }
+  #services{
+    margin-top: 320px;
+  }
+
+  .sitename{
+    color: rgb(218, 212, 39);
+  }
+
+.serviceTitle{
+  margin: 50px;
+
+  }
+.cardStyle{
+  margin: 20px;
+}
+.startTitle{
+  color:rgb(255, 238, 0);
+  text-decoration:none;
+}

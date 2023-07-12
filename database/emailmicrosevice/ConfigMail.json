@@ -1,0 +1,12 @@
+[{
+  "_id": {
+    "$oid": "6443e6196352fa10879ed7f4"
+  },
+  "host": "smtp.gmail.com",
+  "port": "465",
+  "smtpSslEnable": "true",
+  "smtpSocketFactoryPort": "465",
+  "smtpAuth": "true",
+  "smtpStarttlsEnable": "true",
+  "_class": "com.emailservice.model.ConfigMail"
+}]

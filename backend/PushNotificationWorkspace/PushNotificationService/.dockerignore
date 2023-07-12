@@ -1,0 +1,4 @@
+Dockerfile*
+nohup.out
+target/*
+application.*

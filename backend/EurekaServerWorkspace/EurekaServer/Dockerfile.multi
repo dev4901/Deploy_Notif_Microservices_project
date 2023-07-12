@@ -1,0 +1,20 @@
+FROM openjdk:17-alpine AS final
+FROM maven:3.8.3-openjdk-17 as build
+COPY . ./eureka
+RUN rm -rf /root/.m2
+WORKDIR ./eureka
+#RUN microdnf install iputils procps
+#RUN chmod u+x mvnw
+#RUN sed -i '0,/localhost/s//mongo_cont/' src/main/resources/application.properties
+#RUN sed -i 's/http:\/\/localhost/eureka_cont/; s/localhost/eureka_cont/' src/main/resources/application.yml
+RUN mvn clean package
+#EXPOSE 8081
+#CMD java -jar -Djdk.util.jar.enableMultiRelease=false target/EmailService-0.0.1-SNAPSHOT.jar
+
+FROM final
+COPY --from=build ./eureka/src/main/resources/application.* ./eureka_jar/
+COPY --from=build ./eureka/target/EurekaServer-0.0.1-SNAPSHOT.jar ./eureka_jar/
+WORKDIR ./eureka_jar
+EXPOSE 8761
+#CMD sh
+CMD ["nohup","java","-jar","EurekaServer-0.0.1-SNAPSHOT.jar", "&"]

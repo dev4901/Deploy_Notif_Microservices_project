@@ -1,0 +1,8 @@
+package com.gateway.filter;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class AuthenticationFilter {
+
+}

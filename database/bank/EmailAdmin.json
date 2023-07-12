@@ -1,0 +1,8 @@
+[{
+  "_id": {
+    "$oid": "64456d162f31045aac6ac11a"
+  },
+  "mailFrom": "citybank@gmail.com",
+  "password": "sgtziskqqqhcpvht",
+  "_class": "com.bank.model.EmailAdmin"
+}]

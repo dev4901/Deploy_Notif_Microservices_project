@@ -1,0 +1,46 @@
+package com.pushnotificationservice.controller;
+
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import com.pushnotificationservice.service.PushNotificationService;
+
+@RestController
+@RequestMapping("/pushnotification")
+public class PushNotificationController {
+
+	@Autowired
+	PushNotificationService pushnotificationservice;
+
+	@PostMapping("/sendnotification")
+
+	public String sendNotification(@RequestBody Map<String, Object> pnData) {
+
+		String title = (String) pnData.get("title");
+		String body = (String) pnData.get("body");
+		String fcm_api = (String) pnData.get("fcm_api");
+		String server_key = (String) pnData.get("server_key");
+		String app_token = (String) pnData.get("app_token");
+
+		try {
+
+			pushnotificationservice.sendPushNotification(title, body, fcm_api, server_key, app_token);
+
+			return "sent...";
+
+		} catch (Exception e) {
+
+			// TODO Auto-generated catch block
+
+			e.printStackTrace();
+
+			return "error...";
+
+		}
+
+	}
+}

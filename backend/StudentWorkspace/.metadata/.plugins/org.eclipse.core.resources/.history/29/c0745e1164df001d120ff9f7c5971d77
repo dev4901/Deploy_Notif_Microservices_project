@@ -1,0 +1,77 @@
+package com.example.externalservice;
+
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+import org.springframework.web.client.RestTemplate;
+
+import com.example.model.EmailAdmin;
+import com.example.model.Student;
+import com.example.model.Template;
+import com.example.repository.EmailAdminRepository;
+import com.example.repository.StudentRepository;
+import com.example.repository.TemplateRepo;
+
+@Service
+public class GatewayService {
+	
+	@Autowired
+	RestTemplate restTemplet;
+	
+	@Autowired
+	StudentRepository studentrepo;
+	
+	@Autowired
+	EmailAdminRepository emailadminrepo;
+	
+	@Autowired
+	TemplateRepo tempRepo;
+	
+	public ResponseEntity<String> callGateway()
+	{
+		String url = "http://localhost:8888/emailmicroservice/email/home";
+		System.out.println("Gateway called");
+		return restTemplet.getForEntity(url, String.class);
+	}
+	
+	@SuppressWarnings("null")
+	public String callEmailService()
+	{
+		Map<String, Object> emailData = new HashMap();
+		
+		Template t =  tempRepo.findAll().get(1);
+		List<Student> studentList =   studentrepo.findAll();
+		EmailAdmin ea = emailadminrepo.findAll().get(0);
+		
+		String[] bd = t.getBody().split("\\$");
+
+		String url = "http://localhost:8888/emailmicroservice/email/sendmail";
+		
+		for (Student s : studentList) {
+			String name = s.getStudentName();
+			int percentage = s.getStudentMark();
+			String mentor = s.getStudentMentorName();
+			String universityname = s.getStudentUniversity();
+			String email = s.getStudentEmail();
+			String subject = t.getSubject();
+			String body = bd[0]+name+bd[1]+percentage+"%"+bd[2]+mentor+bd[3]+universityname+bd[4];
+			String from =  ea.getMailFrom();
+			String password = ea.getPassword();
+			emailData.put("to",	email);
+			emailData.put("subject", subject);
+			emailData.put("body",	body);
+			emailData.put("from",	from);
+			emailData.put("password",	password);
+			restTemplet.postForEntity(url,emailData,String.class);
+		}
+		
+		return "SENT...";
+
+	}
+}

@@ -1,0 +1,25 @@
+[{
+  "_id": {
+    "$oid": "644580c2a4aa340504ca7908"
+  },
+  "name": "Push Notification Template",
+  "subject": "Internal Semester Results",
+  "body": "Dear $, your percentage is $% in the recent exam.",
+  "_class": "com.hospital.model.Template"
+},{
+  "_id": {
+    "$oid": "644580f3a4aa340504ca7909"
+  },
+  "name": "SMS Template",
+  "subject": "\nAppointment Confirmation",
+  "body": "\nDear $,\n\nWe are pleased to inform you that the your appointment with Dr.$ was scheduled on $ $ at $. \n\nKindly request you to present 15 mins before scheduled time.  \n\nAny query feel free to contact on +91-9876543210.",
+  "_class": "com.hospital.model.Template"
+},{
+  "_id": {
+    "$oid": "64458122a4aa340504ca790a"
+  },
+  "name": "Email Template",
+  "subject": "Regarding Internal Semester Results",
+  "body": "Dear $,\n\nWe are pleased to inform you that the results for your recent exams have been released. We would like to congratulate you on your performance and hard work throughout the semester.\n\nwe are pleased to report that you have achieved $.\n\nIf you have any questions, please don't hesitate to contact us at testservice158@gmail.com.\n\nBest regards,\n\n$,\n$.",
+  "_class": "com.hospital.model.Template"
+}]

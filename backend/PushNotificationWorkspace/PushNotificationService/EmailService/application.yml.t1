@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: emailmicroservice
+
+eureka:
+  client:
+    service-url:
+      defaultZone: 172.19.0.2:8761/eureka/
+  instance:
+    hostname: 172.19.0.2

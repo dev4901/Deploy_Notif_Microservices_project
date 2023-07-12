@@ -1,0 +1,9 @@
+[{
+  "_id": {
+    "$oid": "645be0adae642d2d262f05c2"
+  },
+  "name": "Email Template For Forget Password",
+  "subject": "Notifier Forget Password",
+  "body": "Dear $,\n Your new Password is : $.",
+  "_class": "com.authenticate.model.Template"
+}]

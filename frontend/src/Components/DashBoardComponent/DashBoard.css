@@ -1,0 +1,22 @@
+.dashboardbg{
+    margin-top: 90px;
+    padding: 50px;
+     height: auto;
+     width: 100%;
+     background-image: url("../../../public/images/dashboard\ bg.avif");
+    background-repeat: no-repeat;
+    background-size: 1300px 500px; 
+    /* radial-gradient(circle farthest-side, #fceabb, #ddaf08); */ 
+   }
+.componentBody{
+    margin: 50px;
+    padding: auto;
+    border: 3px dotted;
+}
+
+.dashboardTable{
+    color: black;
+    text-decoration-color: aquamarine;
+    border-color: black;
+    border-radius: 10px;
+}

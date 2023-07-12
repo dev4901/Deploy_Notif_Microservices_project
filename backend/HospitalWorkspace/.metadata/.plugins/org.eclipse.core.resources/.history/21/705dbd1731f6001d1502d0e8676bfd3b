@@ -1,0 +1,5 @@
+package com.hospital.utils;
+
+public class JwtUtil {
+
+}

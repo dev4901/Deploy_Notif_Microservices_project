@@ -1,0 +1,25 @@
+[{
+  "_id": "variya187@gmail.com",
+  "password": "I4s5y1dVIv",
+  "fName": "Divyesh",
+  "lName": "Variya",
+  "_class": "com.identity.model.Identity"
+},{
+  "_id": "jdjethwa28@gmail.com",
+  "password": "Jdjethwa28@",
+  "fName": "Jhanvi",
+  "lName": "Jethwa",
+  "_class": "com.identity.model.Identity"
+},{
+  "_id": "variyad81@gmail.com",
+  "password": "Jayshree81@",
+  "fName": "Jayshree",
+  "lName": "Vanpariya",
+  "_class": "com.identity.model.Identity"
+},{
+  "_id": "dwareshdhamecha2582@gmail.com",
+  "password": "Dwareshdhamecha2582@",
+  "fName": "Dwarkesh",
+  "lName": "Dhamecha",
+  "_class": "com.identity.model.Identity"
+}]

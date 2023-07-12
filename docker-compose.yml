@@ -1,0 +1,195 @@
+version: '3'
+
+networks:
+  services-net:
+    ipam:
+      config:
+        - subnet: 172.19.0.0/24
+          gateway: 172.19.0.1
+
+volumes:
+  dbs:
+    external: true
+
+services:
+  eureka:
+    image: dev4901/eureka_backend:final
+    container_name: eureka
+    stdin_open: true
+    tty: true
+    networks:
+      services-net:
+        ipv4_address: 172.19.0.2
+    ports:
+      - 8761:8761
+
+  mongo-dbs:
+    image: dev4901/mongo-databases:empty-mount
+    container_name: db
+    stdin_open: true
+    tty: true
+    networks:
+      services-net:
+        ipv4_address: 172.19.0.3
+    ports:
+      - 27017:27017
+    volumes:
+      - dbs:/data/db
+
+  gateway:
+    image: dev4901/gateway:final
+    # build:
+    #   context: ./backend/GatewayWorkspace/Gateway
+    #   dockerfile: Dockerfile
+    container_name: gate
+    stdin_open: true
+    tty: true
+    networks:
+      services-net:
+        ipv4_address: 172.19.0.4
+    ports:
+      - 8888:8888
+  auth:
+    image: dev4901/authenticate:test3
+    build: 
+      context: ./backend/AuthenticationWorkspace/Authenticate
+      dockerfile: Dockerfile.test3
+      args:
+        - machine_ip=${host_ip}
+    container_name: auth
+    stdin_open: true
+    tty: true
+    networks:
+      services-net:
+        ipv4_address: 172.19.0.5
+    ports:
+      - 8089:8089
+    depends_on:
+      - mongo-dbs
+  identity:
+    image: dev4901/identity:final
+    container_name: identity
+    stdin_open: true
+    tty: true
+    networks:
+      services-net:
+        ipv4_address: 172.19.0.6
+    ports:
+      - 8090:8090
+    depends_on:
+       - mongo-dbs
+  frontend:
+    image: dev4901/java_frontend:test3
+    build:
+      context: ./frontend/
+      dockerfile: Dockerfile.test3
+      args:
+        - machine_ip=${host_ip}
+    container_name: front
+    stdin_open: true
+    tty: true
+    restart: no
+    networks:
+      services-net:
+        ipv4_address: 172.19.0.7
+    ports:
+      - 3000:3000
+      - 3000:3000/udp
+    depends_on:
+      - mongo-dbs
+      - auth
+      - identity
+      - gateway
+  email:
+    image: dev4901/email_backend:final
+    container_name: email
+    stdin_open: true
+    tty: true
+    networks:
+      services-net:
+        ipv4_address: 172.19.0.8
+    ports:
+      - 8081:8081
+    depends_on:
+      - eureka
+      - gateway
+      - mongo-dbs
+  sms:
+    image: dev4901/sms:final
+    container_name: sms
+    stdin_open: true
+    tty: true
+    networks:
+      services-net:
+        ipv4_address: 172.19.0.9
+    ports:
+      - 8082:8082
+    depends_on:
+      - eureka
+      - gateway
+      - mongo-dbs
+  push:
+    image: dev4901/pushnotif:final
+    container_name: push 
+    stdin_open: true
+    tty: true
+    networks:
+      services-net:
+        ipv4_address: 172.19.0.10
+    ports:
+      - 8083:8083
+    depends_on:
+      - eureka
+      - gateway
+      # - mongo-dbs 
+  bank:
+    image: dev4901/bank:test3
+    build: 
+      context: ./backend/BankWorkspace/Bank/
+      dockerfile: Dockerfile.test3
+      args:
+        - machine_ip=${host_ip}
+    container_name: bank
+    stdin_open: true
+    tty: true
+    networks:
+      services-net:
+        ipv4_address: 172.19.0.11
+    ports:
+      - 8085:8085
+    depends_on:
+      - mongo-dbs
+  student:
+    image: dev4901/student:test3
+    build: 
+      context: ./backend/StudentWorkspace/Student/
+      dockerfile: Dockerfile.test3
+      args:
+        - machine_ip=${host_ip}
+    container_name: student
+    stdin_open: true
+    tty: true
+    networks:
+      services-net:
+        ipv4_address: 172.19.0.12
+    ports:
+      - 8084:8084
+    depends_on:
+      - mongo-dbs
+  hospital:
+    image: dev4901/hospital:test3
+    build: 
+      context: ./backend/HospitalWorkspace/Hospital/
+      dockerfile: Dockerfile.test3
+      args:
+        - machine_ip=${host_ip}
+    container_name: hospital 
+    stdin_open: true
+    tty: true
+    networks:
+      services-net:
+        ipv4_address: 172.19.0.13
+    ports:
+      - 8086:8086
+    depends_on:
+      - mongo-dbs

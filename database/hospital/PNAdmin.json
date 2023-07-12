@@ -1,0 +1,9 @@
+[{
+  "_id": {
+    "$oid": "6445808aa4aa340504ca7907"
+  },
+  "fcm_api": "https://fcm.googleapis.com/fcm/send",
+  "server_key": "AAAA8l7Hy9Q:APA91bFkB8t-RSn_XLwLx0q4zeJNQEntAbGoXdaGRfNZjfQcBP8PTa4pqjgRJlst0kOtGPM5JhD52LuQZYF_U2wG9pDzQfzjN44p_Vb4pQjLbTILZaebD6vRcCuN1ahheA9BEQFUSLj9",
+  "app_token": "cKs_VeuUSSKVTj5gFdRltj:APA91bF7RLhfCM8F4L2kRL5_f8mwEWpT_Z2ys6miLd9f2onV0_NV_Xn5BvZD3O8WlKx3KPF42a0vTKsc35IFgMlZPPLrAeaCAhQuBth_ZZ7AHIH00alQYG3w3A5pXqPz4jh5D9SFbQr3",
+  "_class": "com.hospital.model.PNAdmin"
+}]

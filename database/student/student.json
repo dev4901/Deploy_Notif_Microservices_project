@@ -1,0 +1,53 @@
+[{
+  "_id": {
+    "$numberLong": "190170116075"
+  },
+  "studentName": "Divyesh Variya  M",
+  "studentMark": 89,
+  "studentEmail": "variya187@gmail.com",
+  "studentMentorName": "JRD",
+  "studentUniversity": "GTU",
+  "_class": "com.student.model.Student"
+},{
+  "_id": {
+    "$numberLong": "91900103077"
+  },
+  "studentName": "Dwarkesh Dhamecha",
+  "studentMark": 85,
+  "studentEmail": "dwarkeshdhamecha2582@gmail.com",
+  "studentContact": "8200911898",
+  "studentMentorName": "AM",
+  "studentUniversity": "MU",
+  "_class": "com.student.model.Student"
+},{
+  "_id": {
+    "$numberLong": "190320107145"
+  },
+  "studentName": "Brijesh Vaishnav",
+  "studentMark": 90,
+  "studentEmail": "brijeshvaishnav682@gmail.com",
+  "studentContact": "948765430",
+  "studentMentorName": "HG",
+  "studentUniversity": "GTU",
+  "_class": "com.student.model.Student"
+},{
+  "_id": {
+    "$numberLong": "200170107503"
+  },
+  "studentName": "Jhanvi Jethwa",
+  "studentMark": 80,
+  "studentEmail": "jdjethwa28@gmail.com",
+  "studentMentorName": "VDT",
+  "studentUniversity": "GTU",
+  "_class": "com.student.model.Student"
+},{
+  "_id": {
+    "$numberLong": "190170116074"
+  },
+  "studentName": "Jayshree Vanpariya",
+  "studentMark": 98,
+  "studentEmail": "variyad81@gmail.com",
+  "studentMentorName": "NCG",
+  "studentUniversity": "GTU",
+  "_class": "com.student.model.Student"
+}]

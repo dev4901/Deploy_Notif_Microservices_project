@@ -1,0 +1,153 @@
+package com.authenticate.controller;
+
+import java.util.List;
+
+import org.apache.catalina.connector.Response;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.authenticate.config.CustomeUserDetails;
+import com.authenticate.externalService.EmailService;
+import com.authenticate.model.AuthRequest;
+import com.authenticate.model.EmailAdmin;
+import com.authenticate.model.Template;
+import com.authenticate.model.User;
+import com.authenticate.service.AuthenticateService;
+import com.authenticate.service.EmailAdminService;
+import com.authenticate.service.TemplateService;
+import com.authenticate.util.JwtUtil;
+//import com.authenticate.util.JwtUtil;
+
+@RestController
+@CrossOrigin(origins="http://localhost:3000/")
+public class AuthenticateController {
+
+	@Autowired
+	AuthenticateService authenticateService;
+	
+	@Autowired
+	TemplateService templateService;
+	
+	@Autowired
+	EmailAdminService emailAdminService;
+	
+	@Autowired
+	EmailService externalEmailService;
+	
+	@Autowired
+	AuthenticationManager authenticationManager;
+	
+	@Autowired
+	CustomeUserDetails customeUserDetails;
+	
+	@Autowired
+	JwtUtil jwtUtil;
+	
+	@GetMapping("/welcome")
+//	@PreAuthorize("hasAuthority('ROLE_USER')")
+	public String gethome()
+	{
+		return "welcome to user auth microservice....";
+	}
+	
+	@GetMapping("/try")
+	@PreAuthorize("hasAuthority('ROLE_ADMIN')")
+	public String letTry()
+	{
+		return "welcome to admin auth trial....";
+	}
+	
+	@PostMapping("/signup")
+//	@PreAuthorize("hasAuthority('ROLE_USER')")
+	public Boolean SignUpUser(@RequestBody User user)
+	{
+		
+		return authenticateService.addUser(user); 
+	}
+	
+	@PostMapping("/authenticate")
+//	@PreAuthorize("hasAuthority('ROLE_USER')")
+	public ResponseEntity<String> checkData(@RequestBody AuthRequest authRequest) throws Exception
+	{
+		System.out.println(authRequest);
+		
+//			Authentication authentication= authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authRequest.getEmailId(), authRequest.getPassword()));
+			boolean result=authenticateService.checkEmailIdPassword(authRequest.getEmailId(), authRequest.getPassword());
+			System.out.println(result);
+			if(!result)
+			{
+				return new ResponseEntity<String>("Invaild EmailID or Password....", HttpStatus.BAD_REQUEST);
+				
+			}
+		else
+		{
+			return new ResponseEntity<String>(jwtUtil.generateToken(authRequest.getEmailId()), HttpStatus.OK);
+		}
+	}
+	
+	@GetMapping("/getUserDetails/{emailId}")
+//	@PreAuthorize("hasAuthority('ROLE_USER')")
+	public String getDetails()
+	{
+		System.out.println("userdetails....");
+		return "userDetails";
+//		System.out.println(emailId+"from details...");
+//		return customeUserDetails.loadUserByUsername(emailId);
+	}
+	
+	@GetMapping("/findByEmail/{emailId}")
+//	@PreAuthorize("hasAuthority('ROLE_USER')")
+	public Boolean findbyEmail(@PathVariable String emailId)
+	{
+		return authenticateService.findByEmail(emailId);
+	}
+	
+	@PostMapping("/sendmailbyid")
+//	@PreAuthorize("hasAuthority('ROLE_USER')")
+	public ResponseEntity<String> callEmailServiceforid(@RequestBody String email)
+	{
+		System.out.println(email+"send");
+		return externalEmailService.callEmailServiceForId(email);
+	}
+	
+	@PostMapping("/addemailadmin")
+	@PreAuthorize("hasAuthority('ROLE_ADMIN')")
+	public EmailAdmin addemaildata(@RequestBody EmailAdmin emailAdmin)
+	{
+		return emailAdminService.addemail(emailAdmin);
+	}
+	
+	@PostMapping("/addtemplate")
+	@PreAuthorize("hasAuthority('ROLE_ADMIN')")
+	public Template addtemplatedata(@RequestBody Template template)
+	{
+		return templateService.addtemplate(template);
+	}
+	
+	@GetMapping("/getemailadmin")
+	@PreAuthorize("hasAuthority('ROLE_ADMIN')")
+	public List<EmailAdmin> getemaildata()
+	{
+		return emailAdminService.getAll();
+	}
+	
+	@GetMapping("/gettemplate")
+	public List<Template> gettemplatedata()
+	{
+		return templateService.getAll();
+	}
+}

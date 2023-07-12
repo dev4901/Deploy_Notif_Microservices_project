@@ -1,0 +1,133 @@
+package com.student.externalservice;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+import com.student.model.EmailAdmin;
+import com.student.model.Student;
+import com.student.model.Template;
+import com.student.service.CallCountEmailService;
+import com.student.service.EmailAdminservice;
+import com.student.service.StudentService;
+import com.student.service.TemplateService;
+
+@Service
+public class EmailService {
+
+	@Autowired
+	RestTemplate restTemplet;
+
+	@Autowired
+	StudentService studentService;
+
+	@Autowired
+	EmailAdminservice emailService;
+
+	@Autowired
+	TemplateService templateService;
+	
+	@Autowired
+	CallCountEmailService callCountEmailService;
+
+	@SuppressWarnings("null")
+	public List<ResponseEntity<String>> callEmailService() {
+		List<ResponseEntity<String>> resArray = new ArrayList<>();
+		Map<String, Object> emailData = new HashMap();
+
+		List<Template> t_list = templateService.getAll();
+		Template select_template = null;
+		for (Template temp : t_list) {
+			if (temp.getName().equals("Email Template")) {
+				select_template = temp;
+			}
+		}
+		List<Student> studentList = studentService.getStudents();
+		EmailAdmin ea = emailService.getAll().get(0);
+
+		String[] bd = select_template.getBody().split("\\$");
+
+		String url = "http://localhost:8888/emailmicroservice/email/sendmail";
+
+		for (Student s : studentList) {
+			String name = s.getStudentName();
+			int percentage = s.getStudentMark();
+			String mentor = s.getStudentMentorName();
+			String universityname = s.getStudentUniversity();
+			String email = s.getStudentEmail();
+			String subject = select_template.getSubject();
+			String body = bd[0] + name + bd[1] + percentage + "%" + bd[2] + mentor + bd[3] + universityname + bd[4];
+			String from = ea.getMailFrom();
+			String password = ea.getPassword();
+			emailData.put("to", email);
+			emailData.put("subject", subject);
+			emailData.put("body", body);
+			emailData.put("from", from);
+			emailData.put("password", password);
+			try {
+				ResponseEntity<String>  rs =restTemplet.postForEntity(url, emailData, String.class);
+				resArray.add(rs);
+				System.out.println(rs.getStatusCode());
+				System.out.println(callCountEmailService.updateSuccessCount());
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println(callCountEmailService.updateFailureCount());
+				resArray.add(ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage()));
+			}
+
+		}
+
+		return resArray;
+
+	}
+
+	public ResponseEntity<String> callEmailServiceForId(String studentEmail) {
+		// TODO Auto-generated method stub
+		Map<String, Object> emailData = new HashMap();
+
+		List<Template> t_list = templateService.getAll();
+		Template select_template = null;
+		for (Template temp : t_list) {
+			if (temp.getName().equals("Email Template")) {
+				select_template = temp;
+			}
+		}
+		System.out.println(studentEmail.replace("\"",""));
+		Student s = studentService.findStudentByEmail(studentEmail.replace("\"",""));
+		EmailAdmin ea = emailService.getAll().get(0);
+
+		String[] bd = select_template.getBody().split("\\$");
+
+		String url = "http://localhost:8888/emailmicroservice/email/sendmail";
+		String name = s.getStudentName();
+		int percentage = s.getStudentMark();
+		String mentor = s.getStudentMentorName();
+		String universityname = s.getStudentUniversity();
+		String email = s.getStudentEmail();
+		String subject = select_template.getSubject();
+		String body = bd[0] + name + bd[1] + percentage + "%" + bd[2] + mentor + bd[3] + universityname + bd[4];
+		String from = ea.getMailFrom();
+		String password = ea.getPassword();
+		emailData.put("to", email);
+		emailData.put("subject", subject);
+		emailData.put("body", body);
+		emailData.put("from", from);
+		emailData.put("password", password);
+
+		try {
+			 ResponseEntity<String>  rs =restTemplet.postForEntity(url, emailData, String.class);
+			 System.out.println(callCountEmailService.updateSuccessCount());
+			 return rs;
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(callCountEmailService.updateFailureCount());
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Failed to sent "+email+"... Due to "+e.getMessage());
+		}
+	}
+}

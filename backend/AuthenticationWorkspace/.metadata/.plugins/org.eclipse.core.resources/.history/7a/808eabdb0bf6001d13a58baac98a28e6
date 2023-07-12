@@ -1,0 +1,37 @@
+package com.authenticate.config;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
+import com.authenticate.filter.JwtFilter;
+
+@Configuration
+@EnableWebSecurity
+public class ConfigSecurity {
+	
+	@Autowired
+	JwtFilter jwtFilter;
+	
+		
+	@Bean 
+	public SecurityFilterChain  securityFilterChain(HttpSecurity http) throws Exception
+	{
+		return http.csrf().disable().authorizeHttpRequests().
+				requestMatchers("/signup","/authenticate","/findByEmail","/sendmailbyid","/home").
+				permitAll().and().authorizeHttpRequests().requestMatchers("/addtemplate","/getemailadmin","/gettemplate","/try").authenticated().and()
+//				.formLogin().and().build();
+				.sessionManagement()
+				.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+				.and()
+				.addFilterBefore(jwtFilter,UsernamePasswordAuthenticationFilter.class).build();	
+	}
+	
+}

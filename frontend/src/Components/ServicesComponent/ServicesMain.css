@@ -1,0 +1,105 @@
+.servicesbg{
+    margin-top: 90px;
+    padding: 50px;
+     height: auto;
+     width: 100%; 
+   }
+.componentBody{
+    margin: 50px;
+    padding: auto;
+    border: 3px dotted;
+}
+
+.restApiMsg{
+    margin: 10px;
+    color: blueviolet;
+}
+
+.appointmentDate,.expairyDateInput{
+  width: 693px;
+  border-radius: 5px;
+  height: 35px;
+  border: 1px solid #dedfdc;
+  margin-right: 7px;
+  padding-left:10px ;
+}
+
+@keyframes spinner {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  .loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 10px solid #f3f3f3; /* Light grey */
+    border-top: 10px solid #383636; /* Blue */
+    border-radius: 50%;
+    animation: spinner 1.5s linear infinite;
+  }
+  
+  .spinner-container {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 350px;
+  }
+
+.bgForEmail{
+  height: 250px;
+  width: 100%;
+  background-image: url("../../../public/images/student\ bg..jpg");
+  background-size:cover;
+  background-repeat: no-repeat;
+  text-align: center;
+  border-style: dotted;
+
+}
+
+.btnset{
+  margin-top: 170px;
+  box-shadow:4px 4px 8px #000000;
+}
+
+.bgForSms{
+  height: 250px;
+  width: 100%;
+  background-image: url("../../../public/images/medical\ bg.jpg");
+  background-size:cover;
+  background-repeat: no-repeat;
+  text-align: center;
+  border-style: dotted;
+
+}
+
+.bgForEmail:hover{
+  box-shadow: 4px 4px 8px #000000;
+  border-style: none;
+}
+
+.bgForSms:hover{
+  box-shadow: 4px 4px 8px #000000;
+  border-style: none;
+}
+
+.bgForPn:hover{
+  box-shadow: 4px 4px 8px #000000;
+  border-style: none;
+}
+
+.bgForPn{
+  height: 250px;
+  width: 100%;
+  background-image: url("../../../public/images/bank\ bg.webp");
+  background-size:cover;
+  background-repeat: no-repeat;
+  text-align: center;
+  border-style: dotted;
+}
+
+.error{
+  color: red;
+}
